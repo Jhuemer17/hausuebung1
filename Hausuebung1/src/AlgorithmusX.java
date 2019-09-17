@@ -51,7 +51,6 @@ public class AlgorithmusX {
                     }
                 }
             }
-            else System.out.println(i+" ist eine Primzahl!");
         }
     }
             
