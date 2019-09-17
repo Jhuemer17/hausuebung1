@@ -22,12 +22,16 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
     @Override
     public boolean isPrime(int p) {
-        return true;
+        if(primes.contains(p))return true;
+        else return false;
     }
 
     @Override
     public void printPrimes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(int i:primes)
+        {
+            System.out.print(i+", ");
+        }
     }
 
     private void findPrimes() {
@@ -39,24 +43,20 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
         
         
         for (int i = 0; i < zahlen.length; i++) {
-            primes.add(key);
+
             for (int b = key*2; b<zahlen.length+2; b+=key) {
                 zahlen[b-2].mark();
             }
             key++;
-            while(key<zahlen.length)
+            while(key<zahlen.length-2)
             {
                 if(zahlen[key-2].mark == false)break;
-                key++;
+                else key++;
             }
         }
-        
-        
-        
-
         for(int i = 0; i<zahlen.length; i++)
         {
-            System.out.println("zahl: "+zahlen[i].zahl+" "+zahlen[i].mark);
+            if(zahlen[i].mark == false)primes.add(zahlen[i].zahl);
         }
     }
 

@@ -11,6 +11,8 @@
 public class Main {
     public static void main(String[]args)
     {
-        EratosthenesPrimeSieve e = new EratosthenesPrimeSieve(110);
+        EratosthenesPrimeSieve e = new EratosthenesPrimeSieve(100);
+        e.printPrimes();
+        e.isPrime(11);
     }
 }
