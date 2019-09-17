@@ -19,23 +19,39 @@ public class AlgorithmusX {
     public AlgorithmusX(int obergrenze) {
         e = new EratosthenesPrimeSieve(obergrenze);
         primes.addAll(e.primes);
-        search();
         grenze = obergrenze;
+        search();
+        
     }
     private void search()
     {
-        for(int i = 4; i<=grenze; i++)
+        boolean finished = false;
+        for(int i = 4; i<=grenze; i+=2)
         {
             if(!primes.contains(i))
             {
-                for(int x = 0; primes.get(x)<i; x++)
+                System.out.print(i+" = ");
+                for(int x = 0; x<primes.size(); x++)
                 {
-                    for(int y = 0; primes.get(y)<i;y++)
+                    for(int y = x; y<primes.size();y++)
                     {
-                        if(primes.get(x)+primes.get(y)==i)System.out.println(i+" = "+primes.get(x)+" + "+primes.get(y));
+                        if(primes.get(x)+primes.get(y)==i)
+                        {
+                            System.out.print(primes.get(x)+" + "+primes.get(y));
+                            System.out.println("");
+                            finished = true;
+                            break;
+                        }
+                    }
+                    if(finished)
+                    {
+                        finished = false;
+                        break;
+                        
                     }
                 }
             }
+            else System.out.println(i+" ist eine Primzahl!");
         }
     }
             
