@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class EratosthenesPrimeSieve implements PrimeSieve {
 
     private int og;
-    private ArrayList<Integer> primes = new ArrayList();
+    ArrayList<Integer> primes = new ArrayList();
 
     public EratosthenesPrimeSieve(int obergrenze) {
         og = obergrenze;
