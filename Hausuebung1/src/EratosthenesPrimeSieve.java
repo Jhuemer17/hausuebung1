@@ -22,15 +22,17 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
     @Override
     public boolean isPrime(int p) {
-        if(primes.contains(p))return true;
-        else return false;
+        if (primes.contains(p)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public void printPrimes() {
-        for(int i:primes)
-        {
-            System.out.print(i+", ");
+        for (int i : primes) {
+            System.out.print(i + ", ");
         }
     }
 
@@ -40,23 +42,25 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
         for (int i = 0; i < og - 1; i++) {
             zahlen[i] = new Zahl(i + 2);
         }
-        
-        
+
         for (int i = 0; i < zahlen.length; i++) {
 
-            for (int b = key*2; b<zahlen.length+2; b+=key) {
-                zahlen[b-2].mark();
+            for (int b = key * 2; b < zahlen.length + 2; b += key) {
+                zahlen[b - 2].mark();
             }
             key++;
-            while(key<zahlen.length-2)
-            {
-                if(zahlen[key-2].mark == false)break;
-                else key++;
+            while (key < zahlen.length - 2) {
+                if (zahlen[key - 2].mark == false) {
+                    break;
+                } else {
+                    key++;
+                }
             }
         }
-        for(int i = 0; i<zahlen.length; i++)
-        {
-            if(zahlen[i].mark == false)primes.add(zahlen[i].zahl);
+        for (int i = 0; i < zahlen.length; i++) {
+            if (zahlen[i].mark == false) {
+                primes.add(zahlen[i].zahl);
+            }
         }
     }
 
